@@ -361,6 +361,51 @@
 </head>
 <body>
 
+<!-- MAINTENANCE BANNER -->
+<div id="maintenance-overlay" style="
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(10,20,50,0.92);
+  display: flex; align-items: center; justify-content: center;
+">
+  <div style="
+    background: #1a2c5b; border: 1px solid rgba(74,144,217,0.4);
+    border-radius: 10px; padding: 48px 40px; max-width: 480px;
+    text-align: center; position: relative;
+  ">
+    <div style="font-size: 48px; margin-bottom: 16px;">🔧</div>
+    <h2 style="font-family:'Oswald',sans-serif; color:#fff; font-size:28px; margin-bottom:12px;">
+      Site Under Maintenance
+    </h2>
+    <p style="color:rgba(255,255,255,0.7); font-size:16px; line-height:1.7; margin-bottom:32px;">
+      We're working hard to get things ready. Check back soon, something great is coming!
+    </p>
+    <button onclick="closeMaintenance()" style="
+      background: #f0a500; color: #1a2c5b; border: none;
+      padding: 13px 32px; border-radius: 4px; cursor: pointer;
+      font-family:'Oswald',sans-serif; font-size:15px;
+      font-weight:600; letter-spacing:1px; text-transform:uppercase;
+    ">Got It! Continue to Site</button>
+  </div>
+</div>
+
+<!-- MAINTENANCE STRIP -->
+<div id="maintenance-strip" style="
+  display: none; position: fixed; top: 0; left: 0;
+  width: 100%; z-index: 9998;
+  background: #f0a500; color: #1a2c5b;
+  text-align: center; padding: 8px 48px 8px 16px;
+  font-family:'Oswald',sans-serif; font-size:14px;
+  font-weight:600; letter-spacing:1px;
+">
+  🔧 THIS SITE IS CURRENTLY UNDER MAINTENANCE — SOME FEATURES MAY NOT BE AVAILABLE
+  <button onclick="closeStrip()" style="
+    position: absolute; right: 16px; top: 50%;
+    transform: translateY(-50%); background: none;
+    border: none; cursor: pointer; font-size: 18px;
+    color: #1a2c5b; font-weight: bold; line-height:1;
+  ">✕</button>
+</div>
+
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
@@ -597,9 +642,14 @@
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <p>© 2026 JJ Global Supply Service LLC. All Rights Reserved.</p>
-  </footer>
+<footer>
+  <p>© 2026 JJ Global Supply Service LLC. All Rights Reserved.</p>
+  <p style="margin-top: 10px;">
+    <a href="#" onclick="showPage('privacy-policy')" style="color:rgba(255,255,255,0.5); text-decoration:none; margin: 0 12px; font-size:13px; transition: color .2s;" onmouseover="this.style.color='#f0a500'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Privacy Policy</a>
+    <span style="color:rgba(255,255,255,0.3);">|</span>
+    <a href="#" onclick="showPage('terms')" style="color:rgba(255,255,255,0.5); text-decoration:none; margin: 0 12px; font-size:13px; transition: color .2s;" onmouseover="this.style.color='#f0a500'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Terms &amp; Conditions</a>
+  </p>
+</footer>
 </div>
 
 <!-- ══════════════ SUBPAGES ══════════════ -->
@@ -634,7 +684,51 @@
   <footer><p>© 2026 <span>JJ Global</span> · Global Connections. Limitless Reach.</p></footer>
 </div>
 
+<div id="page-privacy-policy" class="page">
+  <div class="subpage-hero"><div class="subpage-hero-inner">
+    <div class="hero-tag">Legal</div>
+    <h1 style="color:#fff">Privacy Policy</h1>
+  </div></div>
+  <div class="subpage-content"><div class="placeholder-box">
+    <h2>Privacy Policy</h2>
+    <p style="margin-top:16px; color:#6b7a99; line-height:1.8;">
+      This Privacy Policy is currently being finalized.<br/>
+      Please check back soon for the full policy details.
+    </p>
+    <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+  </div></div>
+  <footer><p>© 2026 <span>JJ Global Supply Service LLC.</span> All Rights Reserved.</p></footer>
+</div>
+
+<div id="page-terms" class="page">
+  <div class="subpage-hero"><div class="subpage-hero-inner">
+    <div class="hero-tag">Legal</div>
+    <h1 style="color:#fff">Terms &amp; Conditions</h1>
+  </div></div>
+  <div class="subpage-content"><div class="placeholder-box">
+    <h2>Terms &amp; Conditions</h2>
+    <p style="margin-top:16px; color:#6b7a99; line-height:1.8;">
+      Our Terms &amp; Conditions are currently being finalized.<br/>
+      Please check back soon for the full terms details.
+    </p>
+    <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+  </div></div>
+  <footer><p>© 2026 <span>JJ Global Supply Service LLC.</span> All Rights Reserved.</p></footer>
+</div>
+
 <script>
+
+function closeMaintenance() {
+  document.getElementById('maintenance-overlay').style.display = 'none';
+  document.getElementById('maintenance-strip').style.display = 'block';
+  document.querySelector('nav').style.top = '34px';
+}
+
+function closeStrip() {
+  document.getElementById('maintenance-strip').style.display = 'none';
+  document.querySelector('nav').style.top = '0';
+}
+
   function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-' + id).classList.add('active');
