@@ -1,365 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JJ Global – Global Connections. Limitless Reach.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --navy: #1a2c5b;
-      --blue: #2a5bb5;
-      --sky: #4a90d9;
-      --accent: #f0a500;
-      --light: #f4f7fc;
-      --white: #ffffff;
-      --gray: #6b7a99;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Source Sans 3', sans-serif;
-      color: var(--navy);  
-      background: var(--white);
-      overflow-x: hidden;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; width: 100%; z-index: 100;
-      background: rgba(26, 44, 91, 0.97);
-      backdrop-filter: blur(8px);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 6%; height: 88px;
-    }
-    .nav-logo {
-      display: flex; align-items: center; gap: 0px;
-      text-decoration: none;
-    }
-    .nav-logo-img { height: 80px; width: auto;}
-    .nav-name { margin-left: 10px;
-      font-family: 'Oswald', sans-serif;
-      font-size: 30px; font-weight: 600;
-      color: var(--white); letter-spacing: 1px;
-    }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a {
-      color: rgba(255,255,255,0.8); text-decoration: none;
-      font-size: 18px; font-weight: 600; letter-spacing: .5px;
-      text-transform: uppercase; transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--accent); }
-    .nav-cta {
-      background: var(--accent); color: var(--navy) !important;
-      padding: 8px 20px; border-radius: 4px;
-    }
-    .nav-cta:hover { background: #ffc233; color: var(--navy) !important; }
-
-    /* ── PAGE SYSTEM ── */
-    .page { display: none; }
-    .page.active { display: block; }
-    
-    /* ── HERO ── */
-    #hero {
-      min-height: 100vh;
-      background: linear-gradient(160deg, var(--navy) 0%, #0d1e45 55%, #162550 100%);
-      display: flex; align-items: center;
-      padding: 100px 6% 60px;
-      position: relative; overflow: hidden;
-    }
-    #hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 80% 50%, rgba(74,144,217,0.15) 0%, transparent 70%);
-    }
-    .hero-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 60px; align-items: center; max-width: 1200px; margin: 0 auto;
-      position: relative; z-index: 1;
-    }
-    .hero-tag {
-      display: inline-block;
-      background: rgba(74,144,217,0.2);
-      border: 1px solid rgba(74,144,217,0.5);
-      color: var(--sky); font-size: 12px; font-weight: 600;
-      letter-spacing: 2px; text-transform: uppercase;
-      padding: 6px 14px; border-radius: 2px; margin-bottom: 24px;
-    }
-    h1 {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(40px, 5vw, 64px);
-      font-weight: 700; color: var(--white);
-      line-height: 1.1; margin-bottom: 20px;
-    }
-    h1 span { color: var(--accent); }
-    .hero-sub {
-      font-size: 18px; color: rgba(255,255,255,0.7);
-      line-height: 1.7; margin-bottom: 36px; max-width: 480px;
-    }
-    .btn-row { display: flex; gap: 16px; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--accent); color: var(--navy);
-      padding: 14px 32px; border-radius: 4px;
-      font-family: 'Oswald', sans-serif; font-size: 16px;
-      font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
-      text-decoration: none; transition: background .2s, transform .15s;
-      display: inline-block;
-    }
-    .btn-primary:hover { background: #ffc233; transform: translateY(-2px); }
-    .btn-ghost {
-      border: 2px solid rgba(255,255,255,0.3); color: var(--white);
-      padding: 14px 32px; border-radius: 4px;
-      font-family: 'Oswald', sans-serif; font-size: 16px;
-      font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
-      text-decoration: none; transition: border-color .2s, transform .15s;
-      display: inline-block;
-    }
-    .btn-ghost:hover { border-color: var(--sky); transform: translateY(-2px); }
-
-    /* hero visual */
-    .hero-visual {
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-    }
-    .globe-ring {
-      width: 360px; height: 360px; border-radius: 50%;
-      border: 2px solid rgba(74,144,217,0.3);
-      display: flex; align-items: center; justify-content: center;
-      position: relative; animation: spin 30s linear infinite;
-    }
-    .globe-ring::before {
-      content: '';
-      position: absolute; inset: 20px;
-      border-radius: 50%;
-      border: 1px dashed rgba(74,144,217,0.2);
-    }
-    .globe-core {
-      width: 220px; height: 220px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      box-shadow: 0 0 60px rgba(100, 106, 116, 0.5), inset 0 0 40px rgba(0,0,0,0.3);
-      animation: spin 30s linear infinite reverse;
-      text-align: center; gap: 4px;
-    }
-    .globe-img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 50%;
-    }
-    .orbit-dot {
-      position: absolute; width: 12px; height: 12px;
-      background: var(--accent); border-radius: 50%;
-      box-shadow: 0 0 10px var(--accent);
-    }
-    .orbit-dot:nth-child(1) { top: 14px; left: 50%; transform: translateX(-50%); }
-    .orbit-dot:nth-child(2) { bottom: 37px; right: 15%; }
-    .orbit-dot:nth-child(3) { left: 15px; top: 50%; transform: translateY(-50%); }
-    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
-    /* stats bar */
-    .stats-bar {
-      background: var(--accent);
-      padding: 20px 6%;
-    }
-    .stats-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;
-    }
-    .stat { text-align: center; }
-    .stat-num {
-      font-family: 'Oswald', sans-serif;
-      font-size: 30px; font-weight: 700; color: var(--navy);
-    }
-    .stat-label {
-      font-size: 13px; font-weight: 600; color: rgba(26,44,91,0.75);
-      text-transform: uppercase; letter-spacing: .5px;
-    }
-
-    /* ── SECTIONS ── */
-    section { padding: 90px 6%; }
-    .section-inner { max-width: 1200px; margin: 0 auto; }
-    .section-tag {
-      font-size: 12px; font-weight: 600; letter-spacing: 3px;
-      text-transform: uppercase; color: var(--sky); margin-bottom: 12px;
-    }
-    h2 {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(30px, 4vw, 46px);
-      font-weight: 700; line-height: 1.15; margin-bottom: 16px;
-    }
-    .section-desc {
-      font-size: 17px; color: var(--gray);
-      line-height: 1.7; max-width: 560px; margin-bottom: 52px;
-    }
-
-    /* ── WHY ── */
-    #why { background: var(--light); }
-    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-    .card { background: var(--white); border-radius: 8px; padding: 36px 30px; border-top: 4px solid var(--blue); box-shadow: 0 4px 24px rgba(26,44,91,0.07); transition: transform .2s, box-shadow .2s; cursor: pointer; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 12px 36px rgba(26,44,91,0.13); }
-    .card-icon { font-size: 32px; margin-bottom: 18px; }
-    .card h3 { font-family: 'Oswald', sans-serif; font-size: 20px; font-weight: 600; margin-bottom: 12px; color: var(--navy); }
-    .card p { font-size: 15px; color: var(--gray); line-height: 1.7; }
-    .card-arrow { margin-top: auto; padding-top: 16px; font-size: 14px; font-weight: 600; color: var(--blue); }
-
-    /* ── HOW IT WORKS ── */
-    .steps { display: flex; gap: 0; }
-    .step {
-      flex: 1; padding: 36px 32px;
-      position: relative; text-align: center;
-    }
-    .step:not(:last-child)::after {
-      content: '→';
-      position: absolute; right: -14px; top: 50%;
-      transform: translateY(-50%);
-      font-size: 24px; color: var(--sky); z-index: 1;
-    }
-    .step-num {
-      width: 52px; height: 52px; border-radius: 50%;
-      background: var(--blue); color: var(--white);
-      font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 18px;
-    }
-    .step h3 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 18px; font-weight: 600; margin-bottom: 10px;
-    }
-    .step p { font-size: 14px; color: var(--gray); line-height: 1.65; }
-
-    /* ── SERVICE AREA ── */
-    #coverage { background: var(--navy); color: var(--white); }
-    #coverage .section-desc { color: rgba(255,255,255,0.6); }
-    #coverage h2 { color: var(--white); }
-    .coverage-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
-    }
-    .pa-box {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(74,144,217,0.3);
-      border-radius: 10px;
-      padding: 50px;
-      text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .pa-box::before {
-      content: 'PA';
-      position: absolute; inset: 0;
-      font-family: 'Oswald', sans-serif; font-size: 220px; font-weight: 700;
-      color: rgba(74,144,217,0.06); display: flex;
-      align-items: center; justify-content: center;
-      pointer-events: none;
-    }
-    .pa-label {
-      font-family: 'Oswald', sans-serif;
-      font-size: 22px; font-weight: 600; color: var(--sky);
-      letter-spacing: 2px; margin-bottom: 10px;
-    }
-    .pa-desc { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.7; }
-    .coverage-points { display: flex; flex-direction: column; gap: 24px; }
-    .cov-point { display: flex; gap: 16px; align-items: flex-start; }
-    .cov-icon {
-      width: 42px; height: 42px; border-radius: 6px;
-      background: rgba(74,144,217,0.15);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px; flex-shrink: 0;
-    }
-    .cov-point h4 {
-      font-family: 'Oswald', sans-serif; font-size: 16px;
-      font-weight: 600; color: var(--white); margin-bottom: 4px;
-    }
-    .cov-point p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.6; }
-
-    /* ── CONTACT ── */
-    #contact { background: var(--light); }
-    .contact-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
-    }
-    .contact-info h3 {
-      font-family: 'Oswald', sans-serif; font-size: 26px;
-      font-weight: 600; margin-bottom: 14px;
-    }
-    .contact-info p { font-size: 16px; color: var(--gray); line-height: 1.7; margin-bottom: 32px; }
-    .info-items { display: flex; flex-direction: column; gap: 18px; }
-    .info-item { display: flex; gap: 14px; align-items: center; }
-    .info-icon {
-      width: 40px; height: 40px; border-radius: 6px;
-      background: var(--blue); color: var(--white);
-      display: flex; align-items: center; justify-content: center; font-size: 18px;
-    }
-    .info-item span { font-size: 15px; color: var(--navy); font-weight: 500; }
-
-    /* form */
-    .contact-form { display: flex; flex-direction: column; gap: 16px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .contact-form input,
-    .contact-form select,
-    .contact-form textarea {
-      width: 100%; padding: 14px 16px;
-      border: 1.5px solid #d0d9ec; border-radius: 6px;
-      font-family: 'Source Sans 3', sans-serif; font-size: 15px;
-      color: var(--navy); background: var(--white);
-      transition: border-color .2s;
-      outline: none;
-    }
-    .contact-form input:focus,
-    .contact-form select:focus,
-    .contact-form textarea:focus { border-color: var(--blue); }
-    .contact-form textarea { min-height: 120px; resize: vertical; }
-    .contact-form button {
-      width: 100%; padding: 16px;
-      background: var(--blue); color: var(--white);
-      border: none; border-radius: 6px; cursor: pointer;
-      font-family: 'Oswald', sans-serif; font-size: 17px;
-      font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
-      transition: background .2s, transform .15s;
-    }
-    .contact-form button:hover { background: var(--navy); transform: translateY(-2px); }
-    .form-success {
-      display: none; text-align: center; padding: 24px;
-      background: #e8f5e9; border-radius: 8px; color: #2e7d32;
-      font-weight: 600; font-size: 16px;
-    }
-
-    /* ── SUBPAGES ── */
-    .subpage-hero { min-height: 38vh; background: linear-gradient(160deg, var(--navy) 0%, #0d1e45 100%); display: flex; align-items: center; padding: 100px 6% 60px; }
-    .subpage-hero-inner { max-width: 800px; margin: 0 auto; }
-    .subpage-hero h1 { font-size: clamp(34px,4vw,52px); }
-    .subpage-content { padding: 70px 6%; max-width: 860px; margin: 0 auto; }
-    .placeholder-box { background: var(--light); border-radius: 10px; padding: 60px 40px; text-align: center; border: 2px dashed #c0cde8; }
-    .placeholder-box h2 { font-family: 'Oswald', sans-serif; font-size: 26px; color: var(--navy); margin-bottom: 14px; }
-    .placeholder-box p { font-size: 16px; color: var(--gray); line-height: 1.7; }
-    .back-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 32px; background: var(--blue); color: var(--white); padding: 13px 28px; border-radius: 4px; font-family: 'Oswald', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border: none; transition: background .2s; }
-    .back-btn:hover { background: var(--navy); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #0d1e45; color: rgba(255,255,255,0.5);
-      padding: 32px 6%; text-align: center; font-size: 14px;
-    }
-    footer span { color: rgba(255,255,255,0.8); font-weight: 600; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .hero-grid, .coverage-grid, .contact-grid { grid-template-columns: 1fr; }
-      .hero-visual { display: none; }
-      .cards { grid-template-columns: 1fr 1fr; }
-      .steps { flex-direction: column; }
-      .step:not(:last-child)::after { display: none; }
-      .form-row { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-    }
-    @media (max-width: 600px) {
-      .cards { grid-template-columns: 1fr; }
-    }
-  </style>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="..\CSS\site.css">
+  <!-- Link your separate JS file here -->
+  <script src="..\Scripts\include-content.js" defer></script>
+  <!-- Link your components file once -->
+  <script src="..\Scripts\component.js"></script>
 </head>
+
 <body>
+  <!-- MAINTENANCE BANNER -->
+  <div id="maintenance-overlay" style="
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(10,20,50,0.92);
+  display: flex; align-items: center; justify-content: center;
+">
+    <div style="
+    background: #1a2c5b; border: 1px solid rgba(74,144,217,0.4);
+    border-radius: 10px; padding: 48px 40px; max-width: 480px;
+    text-align: center; position: relative;
+  ">
+      <div style="font-size: 48px; margin-bottom: 16px;">🔧</div>
+      <h2 style="font-family:'Oswald',sans-serif; color:#fff; font-size:28px; margin-bottom:12px;">
+        Site Under Maintenance
+      </h2>
+      <p style="color:rgba(255,255,255,0.7); font-size:16px; line-height:1.7; margin-bottom:32px;">
+        We're working hard to get things ready. Check back soon, something great is coming!
+      </p>
+      <button onclick="closeMaintenance()" style="
+      background: #f0a500; color: #1a2c5b; border: none;
+      padding: 13px 32px; border-radius: 4px; cursor: pointer;
+      font-family:'Oswald',sans-serif; font-size:15px;
+      font-weight:600; letter-spacing:1px; text-transform:uppercase;
+    ">Got It! Continue to Site</button>
+    </div>
+  </div>
+  <!-- MAINTENANCE STRIP -->
+  <div id="maintenance-strip" style="
+  display: none; position: fixed; top: 0; left: 0;
+  width: 100%; z-index: 9998;
+  background: #f0a500; color: #1a2c5b;
+  text-align: center; padding: 8px 48px 8px 16px;
+  font-family:'Oswald',sans-serif; font-size:14px;
+  font-weight:600; letter-spacing:1px;
+">
+    🔧 THIS SITE IS CURRENTLY UNDER MAINTENANCE — SOME FEATURES MAY NOT BE AVAILABLE
+    <button onclick="closeStrip()" style="
+    position: absolute; right: 16px; top: 50%;
+    transform: translateY(-50%); background: none;
+    border: none; cursor: pointer; font-size: 18px;
+    color: #1a2c5b; font-weight: bold; line-height:1;
+  ">✕</button>
+  </div>
 
 <!-- MAINTENANCE BANNER -->
 <div id="maintenance-overlay" style="
@@ -420,11 +120,15 @@
   </ul>
 </nav>
 
-<!-- HERO -->
-<div id="page-home" class="page active">
+  <!-- DOTS -->
+  <div class="carousel-dots">
+    <button class="carousel-dot active" onclick="goToSlide(0)"></button>
+    <button class="carousel-dot" onclick="goToSlide(1)"></button>
+    <button class="carousel-dot" onclick="goToSlide(2)"></button>
+    <button class="carousel-dot" onclick="goToSlide(3)"></button>
+  </div>
 
-  <section id="hero">
-    <div class="hero-grid">
+  <div class="hero-grid">
       <div>
         <div class="hero-tag">Independent Fuel Supplier · Pennsylvania</div>
         <h1>Branded Fuel.<br/><span>Unbranded Price.</span></h1>
@@ -448,142 +152,108 @@
       </div>
     </div>
   </section>
-
-  <!-- STATS BAR -->
-  <div class="stats-bar">
-    <div class="stats-inner">
-      <div class="stat">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Branded Fuel</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">PA-Wide</div>
-        <div class="stat-label">Delivery Coverage</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">Unbranded</div>
-        <div class="stat-label">Pricing</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">24/7</div>
-        <div class="stat-label">Reliable Supply</div>
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+      <div class="stats-inner">
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Branded Fuel</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">PA-Wide</div>
+          <div class="stat-label">Delivery Coverage</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">Unbranded</div>
+          <div class="stat-label">Pricing</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">24/7</div>
+          <div class="stat-label">Reliable Supply</div>
+        </div>
       </div>
     </div>
-  </div>
-
-  <!-- WHY US -->
-    <section id="why">
+    <!-- WHY US -->
+    <include-content src="../UI-Pages/ContentPages/WhyUs.html"></include-content>
+    <!-- HOW IT WORKS -->
+    <include-content src="../UI-Pages/ContentPages/HowItWorks.html"></include-content>
+    <!-- COVERAGE -->
+    <include-content src="../UI-Pages/ContentPages/Coverage.html"></include-content>
+    <!-- MAP SECTION -->
+    <section id="map-section" style="padding: 90px 6%; background: var(--light);">
       <div class="section-inner">
-        <p class="section-tag">Why JJ Global</p>
-        <h2>The Smarter Way to<br/>Fuel Your Station</h2>
-        <p class="section-desc">We bridge the gap between branded quality and unbranded affordability — so your station wins on every front.</p>
-        <div class="cards">
-          <div class="card" onclick="showPage('branded-quality')">
-            <div class="card-icon">⛽</div>
-            <h3>Branded Quality</h3>
-            <p>Supply your station with major-brand fuel that meets all standards and keeps your customers confident in every fill-up.</p>
-            <span class="card-arrow">Learn more →</span>
-          </div>
-          <div class="card" onclick="showPage('pricing')">
-            <div class="card-icon">💰📊</div>
-            <h3>Unbranded &amp; Transparent Pricing</h3>
-            <p>Access fuel at unbranded market rates with zero hidden fees or surprise markups. You know exactly what you're paying and why.</p>
-            <span class="card-arrow">Learn more →</span>
-          </div>
-          <div class="card" onclick="showPage('reliable-delivery')">
-            <div class="card-icon">🚚</div>
-            <h3>Reliable Delivery</h3>
-            <p>Timely, consistent deliveries across Pennsylvania so you never face supply shortages or scheduling headaches.</p>
-            <span class="card-arrow">Learn more →</span>
-          </div>
-          <div class="card" onclick="showPage('independent-flexible')">
-            <div class="card-icon">🤝</div>
-            <h3>Independent &amp; Flexible</h3>
-            <p>As an independent supplier, we work around your schedule and needs — not a corporate playbook.</p>
-            <span class="card-arrow">Learn more →</span>
-          </div>
-          <div class="card" onclick="showPage('global-connections')">
-            <div class="card-icon">🌐</div>
-            <h3>Global Connections</h3>
-            <p>Our supply network and industry relationships mean competitive rates and fuel security for your business.</p>
-            <span class="card-arrow">Learn more →</span>
-          </div>
-        </div>
-      </div>
-    </section>
+        <p class="section-tag">Our Network</p>
+        <h2>Gas Stations We Serve</h2>
+        <p class="section-desc">JJ Global proudly supplies branded fuel to stations across Pennsylvania.</p>
 
-  <!-- HOW IT WORKS -->
-  <section id="how">
-    <div class="section-inner">
-      <p class="section-tag">How It Works</p>
-      <h2>Simple. Fast. Reliable.</h2>
-      <p class="section-desc">Getting started with JJ Global is straightforward, we handle the complexity so you don't have to.</p>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <h3>Request a Quote</h3>
-          <p>Fill out our quick contact form or call us. Tell us your volume needs and station location.</p>
-          <p><a href="tel:(717) 500-6786" style="display:inline-block; margin-top:12px; background:var(--accent); color:var(--navy); padding:10px 20px; border-radius:4px; font-family:'Oswald',sans-serif; font-size:14px; font-weight:600; letter-spacing:1px; text-transform:uppercase; text-decoration:none;">📞 (717) 500-6786</a></p>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <h3>Custom Agreement</h3>
-          <p>We tailor a supply agreement to your station's volume and delivery schedule requirements.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <h3>Scheduled Delivery</h3>
-          <p>Our drivers deliver branded fuel directly to your tanks — on time, every time.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">4</div>
-          <h3>Save & Scale</h3>
-          <p>Enjoy branded product at unbranded costs and grow your station's margins from day one.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- MAP + STATIONS SIDE BY SIDE -->
+        <div
+          style="display: grid; grid-template-columns: 4fr 1fr 1fr; gap: 42px; align-items: start; padding-left: 60px;">
 
-  <!-- COVERAGE -->
-  <section id="coverage">
-    <div class="section-inner">
-      <p class="section-tag">Service Area</p>
-      <h2>Serving Gas Stations<br/>Across Pennsylvania</h2>
-      <p class="section-desc">From Pittsburgh to Philadelphia, JJ Global has the reach to supply your station wherever you operate in the Keystone State.</p>
-      <div class="coverage-grid">
-        <div class="pa-box">
-          <div class="pa-label">Pennsylvania</div>
-          <p class="pa-desc">Our primary service territory — covering gas stations statewide with dependable, scheduled fuel deliveries.</p>
-        </div>
-        <div class="coverage-points">
-          <div class="cov-point">
-            <div class="cov-icon">📍</div>
-            <div>
-              <h4>Statewide Reach</h4>
-              <p>We service stations in urban centers, suburbs, and rural areas throughout PA.</p>
+          <!-- MAP ON LEFT -->
+          <div id="map"
+            style="width:100%; height:330px; border-radius:12px; overflow:hidden; box-shadow:0 4px 24px rgba(26,44,91,0.12);">
+          </div>
+
+          <!-- STATION LIST ON RIGHT -->
+          <div style="display: flex; gap: 32px;">
+            <!--First Column-->
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div
+                style="background:#fff; border-radius:8px; padding:14px 18px; border-left:4px solid var(--accent); box-shadow:0 2px 12px rgba(26,44,91,0.07); cursor:pointer; width:300px;"
+                onclick="focusStation(0)">
+                <h4 style="font-family:'Oswald',sans-serif; color:var(--navy); font-size:15px; margin-bottom:3px;">⛽
+                  Lancaster Travel Places</h4>
+                <p style="font-size:13px; color:var(--gray);">2622 Lincoln Hwy E, Ronks, PA 17572</p>
+              </div>
+              <div
+                style="background:#fff; border-radius:8px; padding:14px 18px; border-left:4px solid var(--accent); box-shadow:0 2px 12px rgba(26,44,91,0.07); cursor:pointer;"
+                onclick="focusStation(1)">
+                <h4 style="font-family:'Oswald',sans-serif; color:var(--navy); font-size:15px; margin-bottom:3px;">⛽
+                  Trexler Express</h4>
+                <p style="font-size:13px; color:var(--gray);">5917 Tilghman St, Allentown, PA 18104</p>
+              </div>
+              <div
+                style="background:#fff; border-radius:8px; padding:14px 18px; border-left:4px solid var(--accent); box-shadow:0 2px 12px rgba(26,44,91,0.07); cursor:pointer;"
+                onclick="focusStation(2)">
+                <h4 style="font-family:'Oswald',sans-serif; color:var(--navy); font-size:15px; margin-bottom:3px;">⛽
+                  Willow Street Enterprise</h4>
+                <p style="font-size:13px; color:var(--gray);">2930 Willow Street Pike, Willow Street, PA 17584</p>
+              </div>
+              <div
+                style="background:#fff; border-radius:8px; padding:14px 18px; border-left:4px solid var(--accent); box-shadow:0 2px 12px rgba(26,44,91,0.07); cursor:pointer;"
+                onclick="focusStation(3)">
+                <h4 style="font-family:'Oswald',sans-serif; color:var(--navy); font-size:15px; margin-bottom:3px;">⛽
+                  Willow Valley Center</h4>
+                <p style="font-size:13px; color:var(--gray);">2504 Willow Street Pike, Lancaster, PA 17584</p>
+              </div>
+            </div>
+            <!--Second Column-->
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div
+                style="background:#fff; border-radius:8px; padding:14px 18px; border-left:4px solid var(--accent); box-shadow:0 2px 12px rgba(26,44,91,0.07); cursor:pointer; width:300px;"
+                onclick="focusStation(4)">
+                <h4 style="font-family:'Oswald',sans-serif; color:var(--navy); font-size:15px; margin-bottom:3px;">⛽
+                  Mountjoy Retail Center</h4>
+                <p style="font-size:13px; color:var(--gray);">2040 W Main St, Mountjoy, PA 17552</p>
+              </div>
+              <div
+                style="background:#fff; border-radius:8px; padding:14px 18px; border-left:4px solid var(--accent); box-shadow:0 2px 12px rgba(26,44,91,0.07); cursor:pointer;"
+                onclick="focusStation(5)">
+                <h4 style="font-family:'Oswald',sans-serif; color:var(--navy); font-size:15px; margin-bottom:3px;">⛽
+                  Harrisburg Travel Plaza</h4>
+                <p style="font-size:13px; color:var(--gray);">2826 E Harrisburg Pike, Middletown, PA 17057</p>
+              </div>
+              <div
+                style="background:#fff; border-radius:8px; padding:14px 18px; border-left:4px solid var(--accent); box-shadow:0 2px 12px rgba(26,44,91,0.07); cursor:pointer;"
+                onclick="focusStation(6)">
+                <h4 style="font-family:'Oswald',sans-serif; color:var(--navy); font-size:15px; margin-bottom:3px;">⛽
+                  Blue Mountain Travel Center</h4>
+                <p style="font-size:13px; color:var(--gray);">511 PA-61 S, Schuylkill Haven, PA 17972</p>
+              </div>
             </div>
           </div>
-          <div class="cov-point">
-            <div class="cov-icon">🗓️</div>
-            <div>
-              <h4>Flexible Scheduling</h4>
-              <p>Deliveries planned around your station's peak demand and storage capacity.</p>
-            </div>
-          </div>
-          <div class="cov-point">
-            <div class="cov-icon">🔒</div>
-            <div>
-              <h4>Supply Security</h4>
-              <p>Backed by a robust supply chain so your station never runs dry.</p>
-            </div>
-          </div>
-          <div class="cov-point">
-            <div class="cov-icon">📞</div>
-            <div>
-              <h4>Dedicated Support</h4>
-              <p>A real person you can call — not a call center. We're your partner, not just a vendor.</p>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>
@@ -612,29 +282,29 @@
               <span>2630 Lincoln Hwy E, Ronks, PA 17572</span>
             </div>
           </div>
-        </div>
-        <div>
-          <form class="contact-form" id="contactForm">
-            <div class="form-row">
-              <input type="text" placeholder="Your Name" required/>
-              <input type="email" placeholder="Email Address" required/>
+          <div>
+            <form class="contact-form" id="contactForm">
+              <div class="form-row">
+                <input type="text" placeholder="Your Name" required />
+                <input type="email" placeholder="Email Address" required />
+              </div>
+              <input type="tel" placeholder="Phone Number" />
+              <input type="text" placeholder="Station Name / Business" />
+              <select>
+                <option value="" disabled selected>Monthly Fuel Volume</option>
+                <option>Under 50,000 gallons</option>
+                <option>50,000 – 100,000 gallons</option>
+                <option>100,000 – 150,000 gallons</option>
+                <option>150,000 – 200,000 gallons</option>
+                <option>200,000 – 250,000 gallons</option>
+                <option>250,000+ gallons</option>
+              </select>
+              <textarea placeholder="Tell us about your station and what you're looking for..."></textarea>
+              <button type="submit">Request a Free Quote →</button>
+            </form>
+            <div class="form-success" id="formSuccess">
+              ✅ Thanks! We'll be in touch within 24 hours.
             </div>
-            <input type="tel" placeholder="Phone Number"/>
-            <input type="text" placeholder="Station Name / Business"/>
-            <select>
-              <option value="" disabled selected>Monthly Fuel Volume</option>
-              <option>Under 50,000 gallons</option>
-              <option>50,000 – 100,000 gallons</option>
-              <option>100,000 – 150,000 gallons</option>
-              <option>150,000 – 200,000 gallons</option>
-              <option>200,000 – 250,000 gallons</option>
-              <option>250,000+ gallons</option>
-            </select>
-            <textarea placeholder="Tell us about your station and what you're looking for..."></textarea>
-            <button type="submit">Request a Free Quote →</button>
-          </form>
-          <div class="form-success" id="formSuccess">
-            ✅ Thanks! We'll be in touch within 24 hours.
           </div>
         </div>
       </div>
@@ -660,29 +330,73 @@
   <footer><p>© 2026 <span>JJ Global</span> · Global Connections. Limitless Reach.</p></footer>
 </div>
 
-<div id="page-pricing" class="page">
-  <div class="subpage-hero"><div class="subpage-hero-inner"><div class="hero-tag">Why JJ Global</div><h1 style="color:#fff">Unbranded &amp; Transparent Pricing</h1></div></div>
-  <div class="subpage-content"><div class="placeholder-box"><h2>Content Coming Soon</h2><p>This page is reserved for <strong>Unbranded &amp; Transparent Pricing</strong> content.<br/>Details will be added here once finalized.</p><button class="back-btn" onclick="showPage('home')">← Back to Home</button></div></div>
-  <footer><p>© 2026 <span>JJ Global</span> · Global Connections. Limitless Reach.</p></footer>
-</div>
+  <div id="page-branded-quality" class="page">
+    <div class="subpage-hero">
+      <div class="subpage-hero-inner">
+        <div class="hero-tag">Why JJ Global</div>
+        <h1 style="color:#fff">Branded Quality</h1>
+      </div>
+    </div>
+    <div class="subpage-content">
+      <div class="placeholder-box">
+        <h2>Content Coming Soon</h2>
+        <p>This page is reserved for <strong>Branded Quality</strong> content.<br />Details will be added here once
+          finalized.</p><button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+      </div>
+    </div>
+    <sub-page-footer></sub-page-footer>
+  </div>
 
-<div id="page-reliable-delivery" class="page">
-  <div class="subpage-hero"><div class="subpage-hero-inner"><div class="hero-tag">Why JJ Global</div><h1 style="color:#fff">Reliable Delivery</h1></div></div>
-  <div class="subpage-content"><div class="placeholder-box"><h2>Content Coming Soon</h2><p>This page is reserved for <strong>Reliable Delivery</strong> content.<br/>Details will be added here once finalized.</p><button class="back-btn" onclick="showPage('home')">← Back to Home</button></div></div>
-  <footer><p>© 2026 <span>JJ Global</span> · Global Connections. Limitless Reach.</p></footer>
-</div>
+  <div id="page-pricing" class="page">
+    <div class="subpage-hero">
+      <div class="subpage-hero-inner">
+        <div class="hero-tag">Why JJ Global</div>
+        <h1 style="color:#fff">Unbranded &amp; Transparent Pricing</h1>
+      </div>
+    </div>
+    <div class="subpage-content">
+      <div class="placeholder-box">
+        <h2>Content Coming Soon</h2>
+        <p>This page is reserved for <strong>Unbranded &amp; Transparent Pricing</strong> content.<br />Details will be
+          added here once finalized.</p><button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+      </div>
+    </div>
+    <sub-page-footer></sub-page-footer>
+  </div>
 
-<div id="page-independent-flexible" class="page">
-  <div class="subpage-hero"><div class="subpage-hero-inner"><div class="hero-tag">Why JJ Global</div><h1 style="color:#fff">Independent &amp; Flexible</h1></div></div>
-  <div class="subpage-content"><div class="placeholder-box"><h2>Content Coming Soon</h2><p>This page is reserved for <strong>Independent &amp; Flexible</strong> content.<br/>Details will be added here once finalized.</p><button class="back-btn" onclick="showPage('home')">← Back to Home</button></div></div>
-  <footer><p>© 2026 <span>JJ Global</span> · Global Connections. Limitless Reach.</p></footer>
-</div>
+  <div id="page-reliable-delivery" class="page">
+    <div class="subpage-hero">
+      <div class="subpage-hero-inner">
+        <div class="hero-tag">Why JJ Global</div>
+        <h1 style="color:#fff">Reliable Delivery</h1>
+      </div>
+    </div>
+    <div class="subpage-content">
+      <div class="placeholder-box">
+        <h2>Content Coming Soon</h2>
+        <p>This page is reserved for <strong>Reliable Delivery</strong> content.<br />Details will be added here once
+          finalized.</p><button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+      </div>
+    </div>
+    <sub-page-footer></sub-page-footer>
+  </div>
 
-<div id="page-global-connections" class="page">
-  <div class="subpage-hero"><div class="subpage-hero-inner"><div class="hero-tag">Why JJ Global</div><h1 style="color:#fff">Global Connections</h1></div></div>
-  <div class="subpage-content"><div class="placeholder-box"><h2>Content Coming Soon</h2><p>This page is reserved for <strong>Global Connections</strong> content.<br/>Details will be added here once finalized.</p><button class="back-btn" onclick="showPage('home')">← Back to Home</button></div></div>
-  <footer><p>© 2026 <span>JJ Global</span> · Global Connections. Limitless Reach.</p></footer>
-</div>
+  <div id="page-independent-flexible" class="page">
+    <div class="subpage-hero">
+      <div class="subpage-hero-inner">
+        <div class="hero-tag">Why JJ Global</div>
+        <h1 style="color:#fff">Independent &amp; Flexible</h1>
+      </div>
+    </div>
+    <div class="subpage-content">
+      <div class="placeholder-box">
+        <h2>Content Coming Soon</h2>
+        <p>This page is reserved for <strong>Independent &amp; Flexible</strong> content.<br />Details will be added
+          here once finalized.</p><button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+      </div>
+    </div>
+    <sub-page-footer></sub-page-footer>
+  </div>
 
 <div id="page-privacy-policy" class="page">
   <div class="subpage-hero"><div class="subpage-hero-inner">
@@ -735,18 +449,11 @@ function closeStrip() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  function scrollTo(id) {
-    setTimeout(() => {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }, 50);
-  }
+  <!-- Use your custom tags! -->
+  <privacy-policy></privacy-policy>
+  <terms-condition></terms-condition>
 
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    this.style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-  });
-</script>
+  <script src="../Scripts/landing-page.js"></script>
 </body>
+
 </html>
