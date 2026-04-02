@@ -3,6 +3,7 @@
 
 <head>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,9 +13,11 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="\CSS\site.css">
   <!-- Link your separate JS file here -->
+
   <script src="\Scripts\include-content.js" defer></script>
   <!-- Link your components file once -->
   <script src="\Scripts\component.js"></script>
+  <script src="\Scripts\contact.js"></script>
 </head>
 
 <body>
@@ -261,28 +264,47 @@
             </div>
           </div>
           <div>
-            <form class="contact-form" id="contactForm">
+            <form class="contact-form" id="contactForm" novalidate>
               <div class="form-row">
-                <input type="text" placeholder="Your Name" required />
-                <input type="email" placeholder="Email Address" required />
+                <div class="field-group">
+                  <input type="text" id="name" placeholder="Your Name" />
+                  <div class="error-msg" id="nameError"></div>
+                </div>
+                <div class="field-group">
+                  <input type="email" id="email" placeholder="Email Address" />
+                  <div class="error-msg" id="emailError"></div>
+                </div>
               </div>
-              <input type="tel" placeholder="Phone Number" />
-              <input type="text" placeholder="Station Name / Business" />
-              <select>
-                <option value="" disabled selected>Monthly Fuel Volume</option>
-                <option>Under 50,000 gallons</option>
-                <option>50,000 – 100,000 gallons</option>
-                <option>100,000 – 150,000 gallons</option>
-                <option>150,000 – 200,000 gallons</option>
-                <option>200,000 – 250,000 gallons</option>
-                <option>250,000+ gallons</option>
-              </select>
-              <textarea placeholder="Tell us about your station and what you're looking for..."></textarea>
-              <button type="submit">Request a Free Quote →</button>
+
+              <div class="field-group">
+                <input type="tel" id="phone" placeholder="Phone Number" />
+                <div class="error-msg" id="phoneError"></div>
+              </div>
+
+              <input type="text" id="business" placeholder="Station Name / Business" />
+
+              <div class="field-group">
+                <select id="fuelVolume">
+                  <option value="" disabled selected>Monthly Fuel Volume</option>
+                  <option>Under 50,000 gallons</option>
+                  <option>50,000 – 100,000 gallons</option>
+                  <option>100,000 – 150,000 gallons</option>
+                  <option>150,000 – 200,000 gallons</option>
+                  <option>200,000 – 250,000 gallons</option>
+                  <option>250,000+ gallons</option>
+                </select>
+                <div class="error-msg" id="volumeError"></div>
+              </div>
+
+              <textarea id="message" placeholder="Tell us about your station and what you're looking for..."></textarea>
+
+              <!-- Success & form-level error -->
+              <span class="error-msg" id="formError"></span>
+              <div id="formSuccess" style="display:none; color: green;">
+                ✅ Message sent! We'll be in touch shortly.
+              </div>
+              <button type="button" id="submitBtn" onclick="">Request a Free Quote →</button>
             </form>
-            <div class="form-success" id="formSuccess">
-              ✅ Thanks! We'll be in touch within 24 hours.
-            </div>
           </div>
         </div>
       </div>
