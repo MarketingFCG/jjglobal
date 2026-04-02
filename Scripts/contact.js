@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     try {
-      await emailjs.send("SERVICE_ID", "TEMPLATE_ID", templateParams);
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams);
       showFormSuccess();
       document.getElementById("contactForm").reset(); // ← fixed, contactForm was not defined
     } catch (error) {
