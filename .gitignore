@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/JJGlobalWebSite.slnx
+/Web.config
+/JJGlobalWebSite.slnx
+/.vs
