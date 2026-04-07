@@ -258,6 +258,9 @@
       text-decoration: none;
       transition: background .2s, transform .15s;
       display: inline-block;
+      background: linear-gradient(120deg, var(--accent), #ffc233);
+      box-shadow: 0 4px 14px rgba(240, 165, 0, 0.4);
+
     }
 
     .btn-primary:hover {
@@ -473,6 +476,8 @@
     .card-icon {
       font-size: 32px;
       margin-bottom: 18px;
+      font-size: 32px;
+      transition: transform 0.3s, color 0.3s;
     }
 
     .card h3 {
@@ -645,6 +650,47 @@
       font-size: 14px;
       color: rgba(255, 255, 255, 0.55);
       line-height: 1.6;
+    }
+
+        .heading-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .testimonial-btn {
+  /* Critical additions for <a> tags */
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+
+  /* Your existing styles */
+  margin-right: 130px;
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 4px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .2s, transform .15s;
+}
+
+/* Optional: Add a hover state since it's a link */
+.testimonial-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+    .testimonial-btn:hover {
+      background: var(--navy);
+      transform: translateY(-2px);
     }
 
     /* ── CONTACT ── */
@@ -852,6 +898,18 @@
       font-weight: 600;
     }
 
+.social-icon {
+    width: 15px;
+    height: 15px;
+    fill: #ccc;
+    float: right; /* pushes icon to right */
+    margin-left: 12px; /* space from text */
+}
+
+.social-icons a:hover .social-icon {
+    fill: #0A66C2; /* LinkedIn blue */
+}
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
 
@@ -904,3 +962,12 @@
       display: flex;
       flex-direction: column;
     }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      border-radius: 8px;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    

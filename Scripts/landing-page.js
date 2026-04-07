@@ -42,7 +42,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 const stationIcon = L.divIcon({
   className: '',
-  html: '<div style="background:#f0a500; width:32px; height:32px; border-radius:50% 50% 50% 0; transform:rotate(-45deg); border:3px solid #1a2c5b; box-shadow:0 2px 8px rgba(0,0,0,0.3);"></div>',
+  html: '<img src="/Images/MlogoNBG.png" style="width:50px; height:50px; object-fit:contain;" alt="JJ Global"/>',
   iconSize: [32, 32],
   iconAnchor: [16, 32],
   popupAnchor: [0, -36]
@@ -92,10 +92,7 @@ function closeMaintenance() {
   document.querySelector('nav').style.top = '34px';
 }
 
-function closeStrip() {
-  document.getElementById('maintenance-strip').style.display = 'none';
-  document.querySelector('nav').style.top = '0';
-}
+
 
   function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));

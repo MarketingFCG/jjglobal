@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const SERVICE_ID = "service_g9awlpd";
   const PUBLIC_KEY = "3kjcflucm07sIOi27";
-  const TEMPLATE_ID = "template_rycgy2k";
+  const TEMPLATE_ID = "template_eb38zgd";
   emailjs.init(PUBLIC_KEY);
 
   document.getElementById("submitBtn").addEventListener("click", handleFormSubmit);
