@@ -15,7 +15,7 @@ class TermsCondition extends HTMLElement {
         <br><br>
         <div style="margin-top:16px; color:#000000; line-height:1.8; text-align:left;">
           <u><strong>1. Acceptance of Terms of Use</strong></u><br /></p>
-          <p>Welcome to jjglobalsupplys.com (the "Site"), the website of JJ Global Supplys ("JJ Global," "Company,"
+          <p>Welcome to jjglobalsupply.com (the "Site"), the website of JJ Global supply ("JJ Global," "Company,"
             "we," or "us"). These Terms of Use, together with any documents they expressly incorporate by reference
             (collectively, the "Terms"), govern your access to and use of our Site, including all content, information,
             products, services, and functionality offered on or through the Site and any electronic communications with
@@ -23,7 +23,7 @@ class TermsCondition extends HTMLElement {
           <p><b>Please read these Terms of Use carefully before using the Site</b></p>
           <p>By using the Site or by clicking to accept or agree to the Terms when that option is made available to you,
             you accept and agree to be bound by these Terms, including our Privacy Policy at
-            jjglobalsupplys.com/privacy-policy, which is incorporated herein by reference. If you do not agree to these
+            jjglobalsupply.com/privacy-policy, which is incorporated herein by reference. If you do not agree to these
             Terms or our Privacy Policy, you must not access or use the Site.</p>
           <p>This Site is intended for use by commercial and business customers located in the United States. By using
             the Site, you represent and warrant that you are of legal age to form a binding contract and meet all
@@ -63,7 +63,7 @@ class TermsCondition extends HTMLElement {
           <u><strong>4. Intellectual Property Rights</strong></u><br /></p>
           <p>The Site and all of its contents, features, and functionality — including all information, software, text,
             displays, images, graphics, logos, and the design, selection, and arrangement thereof — are owned by JJ
-            Global Supplys, its licensors, or other providers of such material and are protected by United States and
+            Global supply, its licensors, or other providers of such material and are protected by United States and
             international copyright, trademark, patent, trade secret, and other intellectual property laws.</p>
           <p>These Terms permit you to use the Site for your personal, non-commercial business reference purposes only.
             You must not reproduce, distribute, modify, create derivative works of, publicly display, republish,
@@ -77,14 +77,14 @@ class TermsCondition extends HTMLElement {
             separately from the accompanying text, or delete or alter any copyright, trademark, or proprietary notices
             from copies of materials from this Site.</p>
           <p>Any commercial use of our Site or its contents without our express written permission is strictly
-            prohibited. All rights not expressly granted are reserved by JJ Global Supplys.</p>
+            prohibited. All rights not expressly granted are reserved by JJ Global supply.</p>
           <br><br>
           <u><strong>5. Trademarks and Copyrights</strong></u><br /></p>
-          <p>The JJ Global Supplys name, all company logos, and all related names, logos, product and service names,
-            designs, and slogans are trademarks of JJ Global Supplys or its affiliates. These marks may not be copied or
+          <p>The JJ Global supply name, all company logos, and all related names, logos, product and service names,
+            designs, and slogans are trademarks of JJ Global supply or its affiliates. These marks may not be copied or
             used, in whole or in modified form, without prior written permission. Other trademarks and company names
             appearing on the Site belong to their respective owners.</p>
-          <p>All website content not licensed from third parties is the property of JJ Global Supplys. All rights
+          <p>All website content not licensed from third parties is the property of JJ Global supply. All rights
             reserved.</p>
           <br><br>
           <u><strong>6. Prohibited Uses</strong></u><br /></p>
@@ -145,7 +145,7 @@ class TermsCondition extends HTMLElement {
           <u><strong>11. Disclaimer of Warranties</strong></u><br /></p>
           <p>YOUR USE OF THE SITE, ITS CONTENT, AND ANY SERVICES OR ITEMS OBTAINED THROUGH THE SITE IS AT YOUR OWN RISK.
             THE SITE AND ALL CONTENT ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT ANY WARRANTIES OF ANY
-            KIND, EITHER EXPRESS OR IMPLIED. JJ GLOBAL SUPPLYS AND ITS AFFILIATES, SUBSIDIARIES, AGENTS, EMPLOYEES,
+            KIND, EITHER EXPRESS OR IMPLIED. JJ GLOBAL supply AND ITS AFFILIATES, SUBSIDIARIES, AGENTS, EMPLOYEES,
             CONTRACTORS, DIRECTORS, OFFICERS, AND SHAREHOLDERS SPECIFICALLY DISCLAIM ALL WARRANTIES, INCLUDING BUT NOT
             LIMITED TO ANY WARRANTIES CONCERNING THE AVAILABILITY, ACCURACY, RELIABILITY, COMPLETENESS, OR TIMELINESS OF
             THE SITE OR ITS CONTENT, OR THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
@@ -155,7 +155,7 @@ class TermsCondition extends HTMLElement {
             YOUR OWN REQUIREMENTS.</p>
           <br><br>
           <u><strong>12. Limitation of Liability</strong></u><br /></p>
-          <p>IN NO EVENT WILL JJ GLOBAL SUPPLYS, ITS AFFILIATES, LICENSORS, SERVICE PROVIDERS, EMPLOYEES, AGENTS,
+          <p>IN NO EVENT WILL JJ GLOBAL supply, ITS AFFILIATES, LICENSORS, SERVICE PROVIDERS, EMPLOYEES, AGENTS,
             OFFICERS, OR DIRECTORS BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL, EXEMPLARY, OR
             PUNITIVE DAMAGES OF ANY KIND ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF, OR INABILITY TO USE, THE SITE
             OR ANY OF ITS CONTENT — INCLUDING BUT NOT LIMITED TO LOSS OF REVENUE, LOSS OF PROFITS, LOSS OF GOODWILL,
@@ -164,7 +164,7 @@ class TermsCondition extends HTMLElement {
           <p>THE FOREGOING DOES NOT AFFECT ANY LIABILITY THAT CANNOT BE EXCLUDED OR LIMITED UNDER APPLICABLE LAW.</p>
           <br><br>
           <u><strong>13. Indemnification</strong></u><br /></p>
-          <p>You agree to defend, indemnify, and hold harmless JJ Global Supplys, its affiliates, licensors, service
+          <p>You agree to defend, indemnify, and hold harmless JJ Global supply, its affiliates, licensors, service
             providers, and their respective officers, directors, employees, contractors, agents, successors, and assigns
             from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees
             (including reasonable attorneys' fees) arising out of or relating to your violation of these Terms or your
@@ -192,18 +192,18 @@ class TermsCondition extends HTMLElement {
           <p>We may assign our rights and duties under these Terms to any party at any time without notice to you. Your
             rights and duties under these Terms are not assignable without our written consent.</p>
           <p>These Terms, together with our Privacy Policy and any applicable service agreements or order terms,
-            constitute the entire agreement between you and JJ Global Supplys with respect to the Site and supersede all
+            constitute the entire agreement between you and JJ Global supply with respect to the Site and supersede all
             prior and contemporaneous understandings, agreements, representations, and warranties.</p>
           <br><br>
           <u><strong>17. Contact Us</strong></u><br /></p>
           <p>Questions, concerns, or requests related to these Terms of Use or our website should be directed to:</p>
-          <p><b>JJ Global Supplys</b></p>
+          <p><b>JJ Global supply</b></p>
           <p>Pennsylvania, USA</p>
           <p>Email: info@jjgusa.com</p>
           <p>Phone: + 1 (717) 500-6786</p>
           <p>Website: jjgusa.com</p>
           <br><br>
-          <i>Thank you for visiting JJ Global Supplys. We look forward to serving your wholesale fuel needs.</i></p>
+          <i>Thank you for visiting JJ Global supply. We look forward to serving your wholesale fuel needs.</i></p>
           <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
         </div>
       </div>
@@ -237,7 +237,7 @@ class SiteFooter extends HTMLElement {
           onmouseover="this.style.color='#f0a500'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Privacy
           Policy</a>
         <span style="color:rgba(255,255,255,0.3);">|</span>
-        <a href="#" onclick="showPage('terms')"
+        <a href="/UI-Pages/TermsAndConditions.html"
           style="color:rgba(255,255,255,0.5); text-decoration:none; margin: 0 12px; font-size:13px; transition: color .2s;"
           onmouseover="this.style.color='#f0a500'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Terms &amp;
           Conditions</a>         
@@ -253,18 +253,8 @@ function closeStrip() {
 }
 
 
-// Define the Footer Component
-class SubPageFooter extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = `
-      <footer>
-      <p>© 2026 <span>JJ Global</span> · Global Connections. Limitless Reach.</p>
-    </footer>
-    `;
-    }
-}
+
 
 // Register the tags so the browser recognizes them
-customElements.define('terms-condition', TermsCondition);
 customElements.define('site-footer', SiteFooter);
-customElements.define('sub-page-footer', SubPageFooter);
+
