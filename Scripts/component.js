@@ -1,195 +1,6 @@
-// Define the Navigation Component
-class PrivacyPolicy extends HTMLElement {
-  connectedCallback() {
-    this.innerHTML = `
-      <div id="page-privacy-policy" class="page">
-    <div class="subpage-hero">
-      <div class="subpage-hero-inner">
-        <div class="hero-tag">Legal</div>
-        <h1 style="color:#fff">Privacy Policy</h1>
-      </div>
-    </div>
-    <div class="subpage-content">
-      <div class="placeholder-box">
-        <h2>Privacy Policy</h2>
-        <h3>Last Updated: March 24, 2026</h3>
-        <br><br>
-        <div style="margin-top:16px; color:#000000; line-height:1.8; text-align:left;">
-          <u><strong>1. Our Commitment to Your Privacy</strong></u><br /></p>
-          <p>JJ Global Supplys ("JJ Global," "we," "us," or "our") is committed to protecting the privacy of visitors to
-            our website and individuals who engage with us or purchase our fuel products and services. This Privacy
-            Policy describes how and why we collect, store, use, and share your information when you interact with our
-            services ("Services"), including:</p>
-          <p>• When you visit or engage with our website at jjglobalsupplys.com (the "Site").</p>
-          <p>• When you inquire about, enroll for, or purchase our wholesale fuel products and services.</p>
-          <p>• When you interact with our advertising or applications on third-party websites or services that link to
-            this policy.</p>
-          <p>• When we communicate with you via phone, email, web forms, or other electronic means.</p>
-          <p>• When you provide information at industry events, trade shows, or marketing activities.</p>
-          <p>By accessing, using, or interacting with our Site or Services, you agree to this Privacy Policy. If you do
-            not agree, please do not use the Site or our Services.</p>
-          <p>This Privacy Policy governs only information collected directly through our Site. It does not apply to
-            information collected through any other channels or by third parties not described herein.</p>
-          <br><br>
-          <u><strong>2. Changes to This Privacy Policy</strong></u><br /></p>
-          <p>We reserve the right to revise, amend, or update this Privacy Policy at any time. For significant changes,
-            we may notify you by posting a prominent notice on our Site or by sending you a notification directly. We
-            encourage you to review this Privacy Policy periodically. Your continued use of the Site after any revision
-            constitutes your agreement to the updated terms.</p>
-          <br><br>
-          <u><strong>3. Information We Collect</strong></u><br /></p>
-          <p><b>3.1 Information Automatically Collected Through Browsing</b></p>
-          <p>We automatically collect certain technical information when you visit, use, or navigate our Site. This
-            includes device and usage data such as your IP address, browser type, device characteristics, operating
-            system, language preferences, referring URLs, and information about how and when you use our Services. This
-            information is primarily used to maintain the security and operation of our Site and for internal analytics
-            purposes.</p>
-          <p>Like many businesses, we also collect information through cookies and similar tracking technologies. The
-            information we may collect automatically includes:</p>
-          <p>• Log and Usage Data — including IP address, browser type, pages viewed, date/time stamps, and actions
-            taken on our Site.</p>
-          <p>• Device Data — including device type, operating system, application identification numbers, and Internet
-            service provider information.</p>
-          <p><b>3.2 Personal Information You Provide to Us</b></p>
-          <p>We collect personal information you voluntarily provide when you register on our Site, request a quote,
-            express interest in our products, participate in activities on the Site, or otherwise contact us. Personal
-            information we may collect includes, but is not limited to:</p>
-          <p>• Full name</p>
-          <p>• Business name and job title</p>
-          <p>• Phone numbers and email addresses</p>
-          <p>• Mailing and billing addresses</p>
-          <p>• Account usernames and passwords</p>
-          <p>• Contact preferences</p>
-          <p>• Payment and billing information</p>
-          <p>Where necessary and permitted by applicable law, we may also process certain sensitive information, such as
-            financial data, credit-worthiness data, or government-issued identifiers, in connection with establishing
-            credit terms or fuel supply agreements.</p>
-          <p>All personal information you provide must be true, complete, and accurate. You are responsible for
-            notifying us of any changes.</p>
-          <p><b>3.3 Information Collected from Other Sources</b></p>
-          <p>To enhance our ability to provide relevant services and maintain accurate records, we may obtain
-            information about you from public databases, marketing partners, and other third-party sources. This may
-            include mailing addresses, job titles, email addresses, phone numbers, and industry-relevant data for
-            purposes of targeted outreach and service promotion.</p>
-          <br><br>
-          <u><strong>4. How We Use Your Information</strong></u><br /></p>
-          <p>We process your personal information to provide, improve, and administer our Services, communicate with
-            you, prevent fraud, and comply with applicable law. Specific uses include, but are not limited to:</p>
-          <p>• Facilitating account creation, authentication, and user account management.<br>
-            • Delivering and coordinating wholesale fuel products and services.<br>
-            • Responding to inquiries and providing customer support.<br>
-            • Sending administrative and service-related communications.<br>
-            • Fulfilling and managing orders, contracts, and delivery schedules.<br>
-            • Processing billing, payments, and collections.<br>
-            • Sending marketing and promotional communications about our fuel products, pricing, and service
-            updates.<br>
-            • Evaluating and improving our Services, website, and marketing effectiveness.<br>
-            • Identifying usage trends and conducting internal analytics.<br>
-            • Protecting the security and integrity of our Site and operations.
-          </p>
-          <p>We may also send periodic emails regarding new services, pricing updates, or account information. If you do
-            not wish to receive marketing communications, you may opt out by clicking the Unsubscribe link in any email
-            or by contacting us directly. Please note that we reserve the right to send essential service and
-            account-related notifications regardless of your marketing preferences.</p>
-          <p>By using our Site and Services, you consent to having your personal information processed in the United
-            States.</p>
-          <br><br>
-          <u><strong>5. Sharing Your Information</strong></u><br /></p>
-          <p><b>5.1 Third-Party Service Providers</b></p>
-          <p>We may share your information with trusted third-party vendors, service providers, contractors, or agents
-            who perform services on our behalf and require access to such information. We share only the portion of
-            information necessary to perform the relevant service. Categories of third parties we may engage
-            include:<br>
-            • Cloud computing and data storage providers <br>
-            • Payment processors and finance/accounting tools<br>
-            • Communication and collaboration platforms<br>
-            • Data analytics and performance monitoring services<br>
-            • Sales, marketing, and CRM tools<br>
-            • Website hosting providers<br>
-            • Order fulfillment and logistics service providers<br>
-            We may also share information with governmental agencies or companies assisting in fraud prevention or
-            investigation when: (1) permitted or required by law; (2) necessary to prevent fraud or unauthorized
-            transactions; (3) fraud has occurred and is under investigation; or (4) disclosure is necessary to protect
-            our rights or the rights of others. Information shared in these circumstances is not provided for marketing
-            purposes.
-          </p>
-          <p><b>5.2 Business Transfers and Other Situations</b></p>
-          <p>We may also need to share your information in the following circumstances:<br>
-            • Business Transfers — In connection with any merger, sale of company assets, financing, or acquisition of
-            all or a portion of our business.<br>
-            • Affiliates — With our corporate affiliates, who will be required to honor this Privacy Policy.<br>
-            • Business Partners — With selected partners to offer relevant products, services, or promotions.
-          </p>
-          <br><br>
-          <u><strong>6. Cookies and Tracking Technologies</strong></u><br /></p>
-          <p>We may use cookies and similar tracking technologies (such as web beacons and pixels) to collect and store
-            information to improve your experience on our Site. Cookies are small files used by web servers to remember
-            your device and preferences, enabling a more seamless browsing experience. Details about what we collect and
-            how we use it are described in Sections 3 and 4 above.</p>
-          <br><br>
-          <u><strong>7. Data Security</strong></u><br /></p>
-          <p><b>7.1 Security Measures</b></p>
-          <p>We have implemented appropriate technical and organizational security measures designed to protect your
-            personal information from loss, misuse, alteration, or unauthorized access. However, no electronic
-            transmission over the Internet or information storage system can be guaranteed to be 100% secure. While we
-            do our best to protect your information, transmission of personal data is at your own risk. You should only
-            access our Site within a secure environment.</p>
-          <p>We are not responsible for circumvention of any privacy settings or security measures on the Site.</p>
-          <p><b>7.2 Your Role in Security</b></p>
-          <p>The security of your information also depends on you. If you are provided with a password to access our
-            Services, you are responsible for keeping that password confidential and for all activity that occurs under
-            your account. Email is not an encrypted medium and should not be used to transmit sensitive financial
-            information.</p>
-          <br><br>
-          <u><strong>8. Third-Party Links</strong></u><br /></p>
-          <p>Our Site may contain links to third-party websites. We are not responsible for the privacy practices or
-            content of those sites. We encourage you to review the privacy statements of any website you visit that
-            collects personally identifiable information. This Privacy Policy applies solely to information collected
-            through our Site.</p>
-          <br><br>
-          <u><strong>9. Collection of Information from Minors</strong></u><br /></p>
-          <p>We do not knowingly solicit or collect data from, or market to, individuals under 18 years of age. Our
-            wholesale fuel services are intended for commercial and business use by adults. By using our Services, you
-            represent that you are at least 18 years of age. If you become aware that we may have inadvertently
-            collected information from a minor, please contact us immediately at the address below.</p>
-          <br><br>
-          <u><strong>10. Your Data Rights</strong></u><br /></p>
-          <p>Depending on applicable law, you may have the right to request access to, correction of, or deletion of the
-            personal information we have collected about you. To submit such a request, please contact us using the
-            information provided in Section 12.</p>
-          <br><br>
-          <u><strong>11. Governing Law</strong></u><br /></p>
-          <p>This Privacy Policy is governed by the laws of the Commonwealth of Pennsylvania, without regard to its
-            choice of law provisions, and without regard to the location of any user. Any dispute arising in connection
-            with this Privacy Policy shall be resolved in accordance with the dispute resolution provisions set forth in
-            our Terms of Use.</p>
-          <br><br>
-          <u><strong>12. Contact Us</strong></u><br /></p>
-          <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices,
-            please contact us:</p>
-          <p><b>JJ Global Supplys</b></p>
-          <p>Pennsylvania, USA
-            Email: info@jjgusa.com<br>
-            Phone: + 1 (717) 500-6786<br>
-            Website: jjgusa.com
-          </p>
-          <br><br>
-          <i>We will make every effort to respond to your inquiry in a timely and professional manner.</i></p>
-          <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
-        </div>
-      </div>
-    </div>
-    <footer>
-      <p>© 2026 <span>JJ Global Supply Service LLC.</span> All Rights Reserved.</p>
-    </footer>
-  </div>
-    `;
-  }
-}
-
 class TermsCondition extends HTMLElement {
-  connectedCallback() {
-    this.innerHTML = `
+    connectedCallback() {
+        this.innerHTML = `
        <div id="page-terms" class="page">
     <div class="subpage-hero">
       <div class="subpage-hero-inner">
@@ -204,7 +15,7 @@ class TermsCondition extends HTMLElement {
         <br><br>
         <div style="margin-top:16px; color:#000000; line-height:1.8; text-align:left;">
           <u><strong>1. Acceptance of Terms of Use</strong></u><br /></p>
-          <p>Welcome to jjglobalsupplys.com (the "Site"), the website of JJ Global Supplys ("JJ Global," "Company,"
+          <p>Welcome to jjglobalsupply.com (the "Site"), the website of JJ Global supply ("JJ Global," "Company,"
             "we," or "us"). These Terms of Use, together with any documents they expressly incorporate by reference
             (collectively, the "Terms"), govern your access to and use of our Site, including all content, information,
             products, services, and functionality offered on or through the Site and any electronic communications with
@@ -212,7 +23,7 @@ class TermsCondition extends HTMLElement {
           <p><b>Please read these Terms of Use carefully before using the Site</b></p>
           <p>By using the Site or by clicking to accept or agree to the Terms when that option is made available to you,
             you accept and agree to be bound by these Terms, including our Privacy Policy at
-            jjglobalsupplys.com/privacy-policy, which is incorporated herein by reference. If you do not agree to these
+            jjglobalsupply.com/privacy-policy, which is incorporated herein by reference. If you do not agree to these
             Terms or our Privacy Policy, you must not access or use the Site.</p>
           <p>This Site is intended for use by commercial and business customers located in the United States. By using
             the Site, you represent and warrant that you are of legal age to form a binding contract and meet all
@@ -252,7 +63,7 @@ class TermsCondition extends HTMLElement {
           <u><strong>4. Intellectual Property Rights</strong></u><br /></p>
           <p>The Site and all of its contents, features, and functionality — including all information, software, text,
             displays, images, graphics, logos, and the design, selection, and arrangement thereof — are owned by JJ
-            Global Supplys, its licensors, or other providers of such material and are protected by United States and
+            Global supply, its licensors, or other providers of such material and are protected by United States and
             international copyright, trademark, patent, trade secret, and other intellectual property laws.</p>
           <p>These Terms permit you to use the Site for your personal, non-commercial business reference purposes only.
             You must not reproduce, distribute, modify, create derivative works of, publicly display, republish,
@@ -266,14 +77,14 @@ class TermsCondition extends HTMLElement {
             separately from the accompanying text, or delete or alter any copyright, trademark, or proprietary notices
             from copies of materials from this Site.</p>
           <p>Any commercial use of our Site or its contents without our express written permission is strictly
-            prohibited. All rights not expressly granted are reserved by JJ Global Supplys.</p>
+            prohibited. All rights not expressly granted are reserved by JJ Global supply.</p>
           <br><br>
           <u><strong>5. Trademarks and Copyrights</strong></u><br /></p>
-          <p>The JJ Global Supplys name, all company logos, and all related names, logos, product and service names,
-            designs, and slogans are trademarks of JJ Global Supplys or its affiliates. These marks may not be copied or
+          <p>The JJ Global supply name, all company logos, and all related names, logos, product and service names,
+            designs, and slogans are trademarks of JJ Global supply or its affiliates. These marks may not be copied or
             used, in whole or in modified form, without prior written permission. Other trademarks and company names
             appearing on the Site belong to their respective owners.</p>
-          <p>All website content not licensed from third parties is the property of JJ Global Supplys. All rights
+          <p>All website content not licensed from third parties is the property of JJ Global supply. All rights
             reserved.</p>
           <br><br>
           <u><strong>6. Prohibited Uses</strong></u><br /></p>
@@ -334,7 +145,7 @@ class TermsCondition extends HTMLElement {
           <u><strong>11. Disclaimer of Warranties</strong></u><br /></p>
           <p>YOUR USE OF THE SITE, ITS CONTENT, AND ANY SERVICES OR ITEMS OBTAINED THROUGH THE SITE IS AT YOUR OWN RISK.
             THE SITE AND ALL CONTENT ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT ANY WARRANTIES OF ANY
-            KIND, EITHER EXPRESS OR IMPLIED. JJ GLOBAL SUPPLYS AND ITS AFFILIATES, SUBSIDIARIES, AGENTS, EMPLOYEES,
+            KIND, EITHER EXPRESS OR IMPLIED. JJ GLOBAL supply AND ITS AFFILIATES, SUBSIDIARIES, AGENTS, EMPLOYEES,
             CONTRACTORS, DIRECTORS, OFFICERS, AND SHAREHOLDERS SPECIFICALLY DISCLAIM ALL WARRANTIES, INCLUDING BUT NOT
             LIMITED TO ANY WARRANTIES CONCERNING THE AVAILABILITY, ACCURACY, RELIABILITY, COMPLETENESS, OR TIMELINESS OF
             THE SITE OR ITS CONTENT, OR THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
@@ -344,7 +155,7 @@ class TermsCondition extends HTMLElement {
             YOUR OWN REQUIREMENTS.</p>
           <br><br>
           <u><strong>12. Limitation of Liability</strong></u><br /></p>
-          <p>IN NO EVENT WILL JJ GLOBAL SUPPLYS, ITS AFFILIATES, LICENSORS, SERVICE PROVIDERS, EMPLOYEES, AGENTS,
+          <p>IN NO EVENT WILL JJ GLOBAL supply, ITS AFFILIATES, LICENSORS, SERVICE PROVIDERS, EMPLOYEES, AGENTS,
             OFFICERS, OR DIRECTORS BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL, EXEMPLARY, OR
             PUNITIVE DAMAGES OF ANY KIND ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF, OR INABILITY TO USE, THE SITE
             OR ANY OF ITS CONTENT — INCLUDING BUT NOT LIMITED TO LOSS OF REVENUE, LOSS OF PROFITS, LOSS OF GOODWILL,
@@ -353,7 +164,7 @@ class TermsCondition extends HTMLElement {
           <p>THE FOREGOING DOES NOT AFFECT ANY LIABILITY THAT CANNOT BE EXCLUDED OR LIMITED UNDER APPLICABLE LAW.</p>
           <br><br>
           <u><strong>13. Indemnification</strong></u><br /></p>
-          <p>You agree to defend, indemnify, and hold harmless JJ Global Supplys, its affiliates, licensors, service
+          <p>You agree to defend, indemnify, and hold harmless JJ Global supply, its affiliates, licensors, service
             providers, and their respective officers, directors, employees, contractors, agents, successors, and assigns
             from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees
             (including reasonable attorneys' fees) arising out of or relating to your violation of these Terms or your
@@ -381,18 +192,18 @@ class TermsCondition extends HTMLElement {
           <p>We may assign our rights and duties under these Terms to any party at any time without notice to you. Your
             rights and duties under these Terms are not assignable without our written consent.</p>
           <p>These Terms, together with our Privacy Policy and any applicable service agreements or order terms,
-            constitute the entire agreement between you and JJ Global Supplys with respect to the Site and supersede all
+            constitute the entire agreement between you and JJ Global supply with respect to the Site and supersede all
             prior and contemporaneous understandings, agreements, representations, and warranties.</p>
           <br><br>
           <u><strong>17. Contact Us</strong></u><br /></p>
           <p>Questions, concerns, or requests related to these Terms of Use or our website should be directed to:</p>
-          <p><b>JJ Global Supplys</b></p>
+          <p><b>JJ Global supply</b></p>
           <p>Pennsylvania, USA</p>
           <p>Email: info@jjgusa.com</p>
           <p>Phone: + 1 (717) 500-6786</p>
           <p>Website: jjgusa.com</p>
           <br><br>
-          <i>Thank you for visiting JJ Global Supplys. We look forward to serving your wholesale fuel needs.</i></p>
+          <i>Thank you for visiting JJ Global supply. We look forward to serving your wholesale fuel needs.</i></p>
           <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
         </div>
       </div>
@@ -402,44 +213,48 @@ class TermsCondition extends HTMLElement {
     </footer>
   </div>
     `;
-  }
+    }
 }
 
 // Define the Footer Component
 class SiteFooter extends HTMLElement {
-  connectedCallback() {
-    this.innerHTML = `
-      <footer>
-      <p>© 2026 JJ Global Supply Service LLC. All Rights Reserved.</p>
+    connectedCallback() {
+        this.innerHTML = `
+       <footer>
+      <p>© 2026 JJ Global Supply Service LLC. All Rights Reserved.
+      <a href="https://www.linkedin.com/in/jjgusa" target="_blank" rel="noopener noreferrer">
+          <svg class="social-icon"  role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF">
+            <title fill="#FFFFFF">LinkedIn</title>
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+              fill="#FFFFFF" />
+          </svg>
+        </a>
+      </p>
       <p style="margin-top: 10px;">
-        <a href="#" onclick="showPage('privacy-policy')"
+        <a href="/UI-Pages/PrivacyPolicy.html"
           style="color:rgba(255,255,255,0.5); text-decoration:none; margin: 0 12px; font-size:13px; transition: color .2s;"
           onmouseover="this.style.color='#f0a500'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Privacy
           Policy</a>
         <span style="color:rgba(255,255,255,0.3);">|</span>
-        <a href="#" onclick="showPage('terms')"
+        <a href="/UI-Pages/TermsAndConditions.html"
           style="color:rgba(255,255,255,0.5); text-decoration:none; margin: 0 12px; font-size:13px; transition: color .2s;"
           onmouseover="this.style.color='#f0a500'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Terms &amp;
-          Conditions</a>
-      </p>
+          Conditions</a>         
+        </p>
     </footer>
     `;
-  }
+    }
 }
 
-// Define the Footer Component
-class SubPageFooter extends HTMLElement {
-  connectedCallback() {
-    this.innerHTML = `
-      <footer>
-      <p>© 2026 <span>JJ Global</span> · Global Connections. Limitless Reach.</p>
-    </footer>
-    `;
-  }
+function closeStrip() {
+    document.getElementById('maintenance-strip').style.display = 'none';
+    document.querySelector('nav').style.top = '0';
 }
+
+
+
 
 // Register the tags so the browser recognizes them
-customElements.define('privacy-policy', PrivacyPolicy);
-customElements.define('terms-condition', TermsCondition);
 customElements.define('site-footer', SiteFooter);
-customElements.define('sub-page-footer', SubPageFooter);
+

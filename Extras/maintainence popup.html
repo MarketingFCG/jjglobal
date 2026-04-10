@@ -1,0 +1,28 @@
+    <!-- MAINTENANCE BANNER -->
+    <div id="maintenance-overlay" style="
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(10,20,50,0.92);
+  display: flex; align-items: center; justify-content: center;
+">
+        <div style="
+    background: #1a2c5b; border: 1px solid rgba(74,144,217,0.4);
+    border-radius: 10px; padding: 48px 40px; max-width: 480px;
+    text-align: center; position: relative;
+  ">
+            <div style="font-size: 48px; margin-bottom: 16px;">🔧</div>
+            <h2 style="font-family:'Oswald',sans-serif; color:#fff; font-size:28px; margin-bottom:12px;">
+                Site Under Maintenance
+            </h2>
+            <p style="color:rgba(255,255,255,0.7); font-size:16px; line-height:1.7; margin-bottom:32px;">
+                We're working hard to get things ready. Check back soon, something great is coming!
+            </p>
+            <button onclick="closeMaintenance()" style="
+      background: #f0a500; color: #1a2c5b; border: none;
+      padding: 13px 32px; border-radius: 4px; cursor: pointer;
+      font-family:'Oswald',sans-serif; font-size:15px;
+      font-weight:600; letter-spacing:1px; text-transform:uppercase;
+    ">
+                Got It! Continue to Site
+            </button>
+        </div>
+    </div>
