@@ -42,7 +42,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 const stationIcon = L.divIcon({
   className: '',
-  html: '<img src="/Images/MlogoNBG.png" style="width:50px; height:50px; object-fit:contain;" alt="JJ Global"/>',
+  html: '<img src="/Images/MlogoNBG.png" style="width:55px; height:55px; object-fit:contain;" alt="JJ Global"/>',
   iconSize: [32, 32],
   iconAnchor: [16, 32],
   popupAnchor: [0, -36]

@@ -47,10 +47,10 @@ header {
 /* ── NAV ── */
 nav {
     position: fixed;
-    top: 0;
+    top: 35px;
     width: 100%;
     z-index: 100;
-    background: rgba(0, 0, 0, 0.97);
+    background: var(--navy);
     backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
@@ -900,7 +900,7 @@ footer {
     width: 15px;
     height: 15px;
     fill: #ccc;
-    float: right; /* pushes icon to right */
+    float: left; /* pushes icon to left */
     margin-left: 12px; /* space from text */
 }
 
@@ -982,7 +982,7 @@ footer {
 }
 
     .privacy-container h2 {
-        color: #004a99; /* Professional Blue */
+        color: #004a99; 
         font-size: 2rem;
         margin-bottom: 5px;
     }

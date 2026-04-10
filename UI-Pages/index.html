@@ -20,37 +20,9 @@
 </head>
 
 <body>
-    <!-- MAINTENANCE BANNER -->
-    <div id="maintenance-overlay" style="
-  position: fixed; inset: 0; z-index: 9999;
-  background: rgba(10,20,50,0.92);
-  display: flex; align-items: center; justify-content: center;
-">
-        <div style="
-    background: #1a2c5b; border: 1px solid rgba(74,144,217,0.4);
-    border-radius: 10px; padding: 48px 40px; max-width: 480px;
-    text-align: center; position: relative;
-  ">
-            <div style="font-size: 48px; margin-bottom: 16px;">🔧</div>
-            <h2 style="font-family:'Oswald',sans-serif; color:#fff; font-size:28px; margin-bottom:12px;">
-                Site Under Maintenance
-            </h2>
-            <p style="color:rgba(255,255,255,0.7); font-size:16px; line-height:1.7; margin-bottom:32px;">
-                We're working hard to get things ready. Check back soon, something great is coming!
-            </p>
-            <button onclick="closeMaintenance()" style="
-      background: #f0a500; color: #1a2c5b; border: none;
-      padding: 13px 32px; border-radius: 4px; cursor: pointer;
-      font-family:'Oswald',sans-serif; font-size:15px;
-      font-weight:600; letter-spacing:1px; text-transform:uppercase;
-    ">
-                Got It! Continue to Site
-            </button>
-        </div>
-    </div>
     <!-- MAINTENANCE STRIP -->
     <div id="maintenance-strip" style="
-  display: none; position: fixed; top: 0; left: 0;
+  display:block; position: fixed; top: 0; left: 0;
   width: 100%; z-index: 9998;
   background: #f0a500; color: #1a2c5b;
   text-align: center; padding: 8px 48px 8px 16px;
@@ -146,7 +118,7 @@
                     <div class="stat-label">Delivery Coverage</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-num">Unbranded</div>
+                    <div class="stat-num">Optimal</div>
                     <div class="stat-label">Pricing</div>
                 </div>
                 <div class="stat">
@@ -278,8 +250,8 @@
                         </p>
                         <div class="info-items">
                             <div class="info-item">
-                                <div class="info-icon">📧</div>
-                                <span>help@jjgusa.com</span>
+                                <div class="info-icon"><img src="/Images/email.png" style="width:50px; height:50px" alt="JJ Global"/></div>
+                                <span>info@jjgusa.com</span>
                             </div>
                             <div class="info-item">
                                 <div class="info-icon">📞</div>
@@ -342,88 +314,8 @@
         <!-- Site FOOTER -->
         <site-footer></site-footer>
     </div>
-    <!-- ══════════════ SUBPAGES ══════════════ -->
 
 
-    <div id="page-pricing" class="page">
-        <div class="subpage-hero">
-            <div class="subpage-hero-inner">
-                <div id="" class="hero-tag">Why JJ Global</div>
-                <h1 style="color:#fff">Unbranded &amp; Transparent Pricing</h1>
-            </div>
-        </div>
-        <div class="subpage-content">
-            <div class="placeholder-box">
-                <h2>Content Coming Soon</h2>
-                <p>
-                    This page is reserved for <strong>Unbranded &amp; Transparent Pricing</strong> content.<br />Details
-                    will be
-                    added here once finalized.
-                </p><button class="back-btn" onclick="showPage('home')">← Back to Home</button>
-            </div>
-        </div>
-        <sub-page-footer></sub-page-footer>
-    </div>
-
-    <div id="page-reliable-delivery" class="page">
-        <div class="subpage-hero">
-            <div class="subpage-hero-inner">
-                <div class="hero-tag">Why JJ Global</div>
-                <h1 style="color:#fff">Reliable Delivery</h1>
-            </div>
-        </div>
-        <div class="subpage-content">
-            <div class="placeholder-box">
-                <h2>Content Coming Soon</h2>
-                <p>
-                    This page is reserved for <strong>Reliable Delivery</strong> content.<br />Details will be added
-                    here once
-                    finalized.
-                </p><button class="back-btn" onclick="showPage('home')">← Back to Home</button>
-            </div>
-        </div>
-        <sub-page-footer></sub-page-footer>
-    </div>
-
-    <div id="page-independent-flexible" class="page">
-        <div class="subpage-hero">
-            <div class="subpage-hero-inner">
-                <div class="hero-tag">Why JJ Global</div>
-                <h1 style="color:#fff">Independent &amp; Flexible</h1>
-            </div>
-        </div>
-        <div class="subpage-content">
-            <div class="placeholder-box">
-                <h2>Content Coming Soon</h2>
-                <p>
-                    This page is reserved for <strong>Independent &amp; Flexible</strong> content.<br />Details will be
-                    added
-                    here once finalized.
-                </p><button class="back-btn" onclick="showPage('home')">← Back to Home</button>
-            </div>
-        </div>
-        <sub-page-footer></sub-page-footer>
-    </div>
-
-    <div id="page-global-connections" class="page">
-        <div class="subpage-hero">
-            <div class="subpage-hero-inner">
-                <div class="hero-tag">Why JJ Global</div>
-                <h1 style="color:#fff">Global Connections</h1>
-            </div>
-        </div>
-        <div class="subpage-content">
-            <div class="placeholder-box">
-                <h2>Content Coming Soon</h2>
-                <p>
-                    This page is reserved for <strong>Global Connections</strong> content.<br />Details will be added
-                    here once
-                    finalized.
-                </p><button class="back-btn" onclick="showPage('home')">← Back to Home</button>
-            </div>
-        </div>
-        <sub-page-footer></sub-page-footer>
-    </div>
     <script src="/Scripts/scroll.js"></script>
     <script src="/Scripts/landing-page.js"></script>
 

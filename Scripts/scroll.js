@@ -12,8 +12,5 @@ window.onscroll = function () {
 
 // Scroll to top smoothly
 btn.onclick = function () {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+      document.documentElement.scrollTo({ top: 0, behavior: 'smooth' });
 };
