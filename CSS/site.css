@@ -834,7 +834,7 @@ h2 {
 
 .subpage-content {
     padding: 70px 6%;
-    max-width: 860px;
+    max-width: auto;
     margin: 0 auto;
 }
 
